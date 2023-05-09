@@ -111,9 +111,9 @@ public class TelegramBots
     private async Task HandleDateInput(long chatId, string dateInput)
     {
         currentInputState = InputState.AwaitingCurrencyInput;
-        var privat = new PrivatBankExchange();
-        string exchangeRateResult = privat.GetExchangeRate2(recentlyEnteredCurrency, dateInput);
-        exchangeRateResult = "Продажа/Покупка: " + exchangeRateResult;
+        var exchangeRateService = new ExchangeRateService();
+        string exchangeRateResult = exchangeRateService.GetExchangeRate(recentlyEnteredCurrency, dateInput);
+        exchangeRateResult = exchangeRateResult;
         ReturnExchage(chatId, exchangeRateResult);
     }
 
